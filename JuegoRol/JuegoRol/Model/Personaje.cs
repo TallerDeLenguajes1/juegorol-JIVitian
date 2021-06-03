@@ -6,7 +6,23 @@ using System.Threading.Tasks;
 
 namespace JuegoRol.Model
 {
+    private enum Tipo
+    {
+        Guerrero,
+        Paladin,
+        Mago,
+        MagoBlanco
+    }
+
     class Personaje
     {
+        
+        string nombre;
+        string apodo;
+        DateTime fechaNacimiento;
+        int edad;
+        int salud;
+
+
     }
 }
