@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace JuegoRol.Model
 {
-     public enum Clase
-    {
+     public enum TipoPersonaje
+     {
         Guerrero,
         Paladin,
         Arquero,
         Ladron
-    }
+     }
 
     public class Personaje
     {
         // Datos
-        private Clase tipo;
+        private TipoPersonaje tipo;
         private string nombre;
         private string apodo;
         private DateTime fechaNacimiento;
@@ -31,7 +31,7 @@ namespace JuegoRol.Model
         private int nivel;
         private int armadura;
 
-        private Clase Tipo { get => tipo; set => tipo = value; }
+        public TipoPersonaje Tipo { get => tipo; set => tipo = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string Apodo { get => apodo; set => apodo = value; }
         public DateTime FechaNacimiento { get => fechaNacimiento; set => fechaNacimiento = value; }
@@ -43,57 +43,18 @@ namespace JuegoRol.Model
         public int Nivel { get => nivel; set => nivel = value; }
         public int Armadura { get => armadura; set => armadura = value; }
 
-        public Personaje(string nombre, string apodo, DateTime fechaNacimiento, Clase tipo)
+        public Personaje()
         {
-            this.salud = 100;
-            this.nivel = 1;
-            this.nombre = nombre;
-            this.apodo = apodo;
-            this.tipo = tipo;
-            this.fechaNacimiento = fechaNacimiento;
-            this.edad = DateTime.Now.Year - fechaNacimiento.Year;
-            setCaracteristicas(tipo);
+            salud = 100;
+            nivel = 1;
         }
 
-        private void setCaracteristicas(Clase tipo)
-        {
-            switch (tipo)
-            {
-                // La suma de todos los stats es 20
-                case Clase.Guerrero:
-                    this.velocidad = 5;
-                    this.destreza = 7;
-                    this.fuerza = 7;
-                    this.armadura = 4;
-                    break;
-                case Clase.Paladin:
-                    this.velocidad = 4;
-                    this.destreza = 4;
-                    this.fuerza = 6;
-                    this.armadura = 6;
-                    break;
-                case Clase.Arquero:
-                    this.velocidad = 6;
-                    this.destreza = 7;
-                    this.fuerza = 3;
-                    this.armadura = 4;
-                    break;
-                case Clase.Ladron:
-                    this.velocidad = 8;
-                    this.destreza = 7;
-                    this.fuerza = 3;
-                    this.armadura = 2;
-                    break;
-            }
-        }
+        
 
-        public void getDatos()
+        public override string ToString()
         {
-            Console.WriteLine($"Nombre: {Nombre}\n" +
-                $"Apodo: {Apodo}" +
-                $"\nFecha de Nacimiento: {FechaNacimiento}\n" +
-                $"Edad: {Edad}" +
-                $"Salud: {Salud}\n");
+            return $"\tDATOS\nNombre: {Nombre}\nApodo: {Apodo}\nTipo: {Tipo}\nFecha de Nacimiento: {FechaNacimiento}\nEdad: {Edad}" +
+                $"\tStats\nNivel: {Nivel}\nPV: {Salud}\nVelocidad: {Velocidad}\nDestreza: {Destreza}\nFuerza: {Fuerza}\nArmadura: {Armadura}";
         }
 
         public void getCaracteristicas()

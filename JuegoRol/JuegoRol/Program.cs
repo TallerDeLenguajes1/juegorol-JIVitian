@@ -1,3 +1,4 @@
+using JuegoRol.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,13 +12,19 @@ namespace JuegoRol
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
-        [STAThread]
+        //[STAThread]
         static void Main()
         {
-            Application.SetHighDpiMode(HighDpiMode.SystemAware);
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ViewJuego());
+            //Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new ViewNuevoPersonaje());
+
+            TestPersonaje.CrearPersonaje();
+            TestPersonaje.CrearPersonaje();
+            TestPersonaje.CrearPersonaje();
+
+            TestPersonaje.MostrarLista();
         }
     }
 }

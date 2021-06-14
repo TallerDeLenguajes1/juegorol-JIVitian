@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace JuegoRol
 {
-    public partial class ViewJuego : Form
+    public partial class ViewNuevoPersonaje : Form
     {
-        public ViewJuego()
+        public ViewNuevoPersonaje()
         {
             InitializeComponent();
         }

@@ -8,6 +8,6 @@ namespace JuegoRol.Controller
 {
     class ControllerPersonaje
     {
-
+           
     }
 }
