@@ -7,10 +7,13 @@ namespace JuegoRol.Model
     public class GestorPersonaje
     {
         private LinkedList<Personaje> personajes;
-        /**
+        /** <summary>
          * Este gestor es estatico para que esté en todas las instancias de la clase.
+         * </summary>
          */
         private static GestorPersonaje gestor;
+
+        public LinkedList<Personaje> Personajes { get => personajes; }
 
         /**
          * El constructor será privado para que no se pueda instanciar varias veces.
@@ -20,8 +23,9 @@ namespace JuegoRol.Model
             personajes = new LinkedList<Personaje>();
         }
 
-        /**
-         * Solo se podrá instanciar un gestor de personajes
+        /** <summary>
+         * Instancia un objeto GestorPersonaje si éste no se instanció antes.
+         * </summary>
          */
         public static GestorPersonaje Instanciar()
         {
@@ -31,7 +35,11 @@ namespace JuegoRol.Model
         }
 
         /**
+         * <summary>
+         * Establece las caractéristicas que tendrá un nuevo personaje.
          * Cada tipo tendrá sus stats base y podrán crecer cuando suban de nivel
+         * </summary>
+         * <param name="tipo">Indica el tipo de personaje.</param>
          */
         private Personaje SetCaracteristicas(TipoPersonaje tipo)
         {
@@ -70,8 +78,10 @@ namespace JuegoRol.Model
         }
 
         /**
+         * <summary>
          * Recibe los parametros de un personaje, lo instancia y lo agrega a la lista de personajes.
-         */ 
+         * </summary>
+         */
         public void NuevoPersonaje(string nombre, string apodo, TipoPersonaje tipo, DateTime bDay)
         {
             Personaje personaje = SetCaracteristicas(tipo);
@@ -85,15 +95,15 @@ namespace JuegoRol.Model
             personajes.AddLast(new LinkedListNode<Personaje>(personaje));
         }
 
-        public void MostrarPersonajes()
-        {
-            LinkedListNode<Personaje> p = personajes.First;
-            while (p != null)
-            {
-                Console.WriteLine(p.Value);
-                p = p.Next;
-            }
-        }
+        //public void MostrarPersonajes()
+        //{
+        //    LinkedListNode<Personaje> p = personajes.First;
+        //    while (p != null)
+        //    {
+        //        Console.WriteLine(p.Value);
+        //        p = p.Next;
+        //    }
+        //}
         /*
         public Personaje getPersonaje()
         {

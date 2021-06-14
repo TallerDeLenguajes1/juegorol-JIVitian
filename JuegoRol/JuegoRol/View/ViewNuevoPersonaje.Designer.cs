@@ -1,4 +1,6 @@
 ﻿
+using System.Windows.Forms;
+
 namespace JuegoRol
 {
     partial class ViewNuevoPersonaje
@@ -105,6 +107,7 @@ namespace JuegoRol
             this.btnCrear.TabIndex = 7;
             this.btnCrear.Text = "Crear";
             this.btnCrear.UseVisualStyleBackColor = true;
+            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
             // 
             // btnCancelar
             // 
@@ -114,6 +117,7 @@ namespace JuegoRol
             this.btnCancelar.TabIndex = 8;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // ViewNuevoPersonaje
             // 
@@ -147,6 +151,13 @@ namespace JuegoRol
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnCrear;
         private System.Windows.Forms.Button btnCancelar;
+
+        public Button BtnCrear { get => btnCrear; set => btnCrear = value; }
+        public Button BtnCancelar { get => btnCancelar; set => btnCancelar = value; }
+        public ComboBox CbType { get => cbType; set => cbType = value; }
+        public DateTimePicker DtDate { get => dtDate; set => dtDate = value; }
+        public TextBox TxtName { get => txtName; set => txtName = value; }
+        public TextBox TxtNick { get => txtNick; set => txtNick = value; }
     }
 }
 

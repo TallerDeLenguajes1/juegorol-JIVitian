@@ -1,4 +1,6 @@
 ﻿
+using System.Windows.Forms;
+
 namespace JuegoRol.View
 {
     partial class ViewPrincipal
@@ -29,7 +31,7 @@ namespace JuegoRol.View
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lbxPersonajes = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCrear = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
@@ -37,14 +39,15 @@ namespace JuegoRol.View
             ((System.ComponentModel.ISupportInitialize)(this.imgPersonaje)).BeginInit();
             this.SuspendLayout();
             // 
-            // listBox1
+            // lbxPersonajes
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 15;
-            this.listBox1.Location = new System.Drawing.Point(10, 40);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(156, 139);
-            this.listBox1.TabIndex = 0;
+            this.lbxPersonajes.FormattingEnabled = true;
+            this.lbxPersonajes.ItemHeight = 15;
+            this.lbxPersonajes.Location = new System.Drawing.Point(10, 40);
+            this.lbxPersonajes.Name = "lbxPersonajes";
+            this.lbxPersonajes.Size = new System.Drawing.Size(156, 139);
+            this.lbxPersonajes.TabIndex = 0;
+            this.lbxPersonajes.SelectedIndexChanged += new System.EventHandler(this.lbPersonajes_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -63,6 +66,7 @@ namespace JuegoRol.View
             this.btnCrear.TabIndex = 2;
             this.btnCrear.Text = "Nuevo";
             this.btnCrear.UseVisualStyleBackColor = true;
+            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
             // 
             // btnBorrar
             // 
@@ -92,7 +96,7 @@ namespace JuegoRol.View
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnCrear);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lbxPersonajes);
             this.Name = "ViewPrincipal";
             this.Text = "ViewPrincipal";
             ((System.ComponentModel.ISupportInitialize)(this.imgPersonaje)).EndInit();
@@ -103,10 +107,16 @@ namespace JuegoRol.View
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lbxPersonajes;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCrear;
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.PictureBox imgPersonaje;
+
+        public ListBox LbxPersonajes { get => lbxPersonajes; set => lbxPersonajes = value; }
+        public Label Label1 { get => label1; set => label1 = value; }
+        public Button BtnCrear { get => btnCrear; set => btnCrear = value; }
+        public Button BtnBorrar { get => btnBorrar; set => btnBorrar = value; }
+        public PictureBox ImgPersonaje { get => imgPersonaje; set => imgPersonaje = value; }
     }
 }

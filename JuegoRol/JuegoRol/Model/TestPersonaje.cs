@@ -14,15 +14,6 @@ namespace JuegoRol.Model
 
         public static void CrearPersonaje()
         {
-            //Personaje player = new Personaje();
-
-            //player.Tipo = generarTipo();
-            //player.Nombre = generarNombre();
-            //player.Apodo = generarApodo();
-            //player.FechaNacimiento = generadorFechaNacimiento();
-            //player.Edad = generadorEdad(player.FechaNacimiento);
-            //player.Salud = 100;
-
             gestor.NuevoPersonaje(generarNombre(), generarApodo(), generarTipo(), generarFechaNacimiento());
         }
 
@@ -70,9 +61,9 @@ namespace JuegoRol.Model
             return new DateTime(aleatorio.Next(1721, 2000), aleatorio.Next(1, 12), aleatorio.Next(1, 28));
         }
 
-        public static void MostrarLista()
-        {
-            gestor.MostrarPersonajes();
-        }
+        //public static void MostrarLista()
+        //{
+        //    gestor.MostrarPersonajes();
+        //}
     }
 }

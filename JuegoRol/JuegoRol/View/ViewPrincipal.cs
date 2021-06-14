@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JuegoRol.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,22 @@ namespace JuegoRol.View
 {
     public partial class ViewPrincipal : Form
     {
+        private ControllerPersonaje controller;
+
         public ViewPrincipal()
         {
             InitializeComponent();
+            controller = new ControllerPersonaje(this);
+        }
+
+        private void lbPersonajes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //imgPersonaje.Image = Image.FromFile("../Resources/Paladin.png");
+        }
+
+        private void btnCrear_Click(object sender, EventArgs e)
+        {
+            controller.AgregarPersonaje();
         }
     }
 }
