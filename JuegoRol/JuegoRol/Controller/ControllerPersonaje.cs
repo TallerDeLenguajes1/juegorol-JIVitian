@@ -34,6 +34,7 @@ namespace JuegoRol.Controller
                 // Llena la lista con los valores de la lista del gestor personaje
                 foreach (Personaje personaje in gp.Personajes)
                     vista.LbxPersonajes.Items.Add(personaje);
+                vista.LbxPersonajes.SetSelected(0, true);
             }
         }
 
@@ -42,7 +43,7 @@ namespace JuegoRol.Controller
             vista.Hide();
 
             ViewNuevoPersonaje vistaNP = new ViewNuevoPersonaje(vista);
-            vistaNP.Show();
+            vistaNP.ShowDialog();
         } 
 
         public void BorrarPersonaje()
@@ -55,10 +56,17 @@ namespace JuegoRol.Controller
 
         public void CambiarImagen()
         {
-            int indice = vista.LbxPersonajes.SelectedIndex;
-            string tipo = gp.Personajes.ElementAt(indice).Tipo.ToString();
-            string ruta = $@"..\..\..\Resources\{tipo}.png";
-            vista.ImgPersonaje.Image = Image.FromFile(ruta);
+            if (vista.LbxPersonajes.SelectedIndex != -1) 
+            {
+                int indice = vista.LbxPersonajes.SelectedIndex;
+                string tipo = gp.Personajes.ElementAt(indice).Tipo.ToString();
+                string ruta = $@"..\..\..\Resources\{tipo}.png";
+                vista.ImgPersonaje.Image = Image.FromFile(ruta);
+            }
+            else
+            {
+                vista.ImgPersonaje.Image = null;
+            }
         }
     }
 }
