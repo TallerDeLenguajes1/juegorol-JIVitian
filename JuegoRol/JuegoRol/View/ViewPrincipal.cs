@@ -1,12 +1,5 @@
 ﻿using JuegoRol.Controller;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JuegoRol.View
@@ -23,12 +16,22 @@ namespace JuegoRol.View
 
         private void lbPersonajes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //imgPersonaje.Image = Image.FromFile("../Resources/Paladin.png");
+            controller.CambiarImagen();
         }
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
-            controller.AgregarPersonaje();
+            controller.AbrirVistaNuevoPersonaje();
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            controller.BorrarPersonaje();
+        }
+
+        private void ViewPrincipal_VisibleChanged(object sender, EventArgs e)
+        {
+            controller.ActualizarLista();
         }
     }
 }

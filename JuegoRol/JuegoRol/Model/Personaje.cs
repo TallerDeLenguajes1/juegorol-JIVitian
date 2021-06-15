@@ -53,8 +53,7 @@ namespace JuegoRol.Model
 
         public override string ToString()
         {
-            return $"\tDATOS\nNombre: {Nombre}\nApodo: {Apodo}\nTipo: {Tipo}\nFecha de Nacimiento: {FechaNacimiento}\nEdad: {Edad}" +
-                $"\tStats\nNivel: {Nivel}\nPV: {Salud}\nVelocidad: {Velocidad}\nDestreza: {Destreza}\nFuerza: {Fuerza}\nArmadura: {Armadura}";
+            return $"{Nombre} Alias {Apodo}";
         }
 
         public void getCaracteristicas()

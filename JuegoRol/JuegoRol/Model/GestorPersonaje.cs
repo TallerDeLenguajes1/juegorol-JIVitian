@@ -6,21 +6,21 @@ namespace JuegoRol.Model
 {
     public class GestorPersonaje
     {
-        private LinkedList<Personaje> personajes;
+        private List<Personaje> personajes;
         /** <summary>
          * Este gestor es estatico para que esté en todas las instancias de la clase.
          * </summary>
          */
         private static GestorPersonaje gestor;
 
-        public LinkedList<Personaje> Personajes { get => personajes; }
+        public List<Personaje> Personajes { get => personajes; }
 
         /**
          * El constructor será privado para que no se pueda instanciar varias veces.
          */
         private GestorPersonaje()
         {
-            personajes = new LinkedList<Personaje>();
+            personajes = new List<Personaje>();
         }
 
         /** <summary>
@@ -92,7 +92,7 @@ namespace JuegoRol.Model
             personaje.Edad = (DateTime.Now - bDay).Days / 365;
 
             // Añado el nuevo personaje a la lista
-            personajes.AddLast(new LinkedListNode<Personaje>(personaje));
+            personajes.Add(personaje);
         }
 
         //public void MostrarPersonajes()
@@ -104,26 +104,26 @@ namespace JuegoRol.Model
         //        p = p.Next;
         //    }
         //}
-        /*
-        public Personaje getPersonaje()
+
+        //public Personaje getPersonaje()
+        //{
+        //    return new Personaje();
+        //}
+
+        public void BorrarPersonaje(int indice)
         {
-            return new Personaje();
+            Personajes.RemoveAt(indice);
         }
 
-        public void BorrarPersonaje()
-        {
+        //public void LeerPersonajes()
+        //{
 
-        }
+        //}
 
-        public void LeerPersonajes()
-        {
+        //public void ActualizarPersonaje()
+        //{
 
-        }
+        //}
 
-        public void ActualizarPersonaje()
-        {
-
-        }
-        */
     }
 }

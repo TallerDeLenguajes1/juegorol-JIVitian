@@ -19,13 +19,10 @@ namespace JuegoRol
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            TestPersonaje.CrearPersonaje();
+            TestPersonaje.CrearPersonaje();
+            TestPersonaje.CrearPersonaje();
             Application.Run(new ViewPrincipal());
-
-            //TestPersonaje.CrearPersonaje();
-            //TestPersonaje.CrearPersonaje();
-            //TestPersonaje.CrearPersonaje();
-
-            //TestPersonaje.MostrarLista();
         }
     }
 }

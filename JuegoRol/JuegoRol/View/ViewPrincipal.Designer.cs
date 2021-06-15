@@ -36,6 +36,7 @@ namespace JuegoRol.View
             this.btnCrear = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.imgPersonaje = new System.Windows.Forms.PictureBox();
+            this.btnBatalla = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgPersonaje)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,22 +77,33 @@ namespace JuegoRol.View
             this.btnBorrar.TabIndex = 3;
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // imgPersonaje
             // 
             this.imgPersonaje.Image = global::JuegoRol.Properties.Resources.Arquero;
             this.imgPersonaje.Location = new System.Drawing.Point(217, 22);
             this.imgPersonaje.Name = "imgPersonaje";
-            this.imgPersonaje.Size = new System.Drawing.Size(152, 206);
+            this.imgPersonaje.Size = new System.Drawing.Size(181, 234);
             this.imgPersonaje.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgPersonaje.TabIndex = 4;
             this.imgPersonaje.TabStop = false;
+            // 
+            // btnBatalla
+            // 
+            this.btnBatalla.Location = new System.Drawing.Point(10, 233);
+            this.btnBatalla.Name = "btnBatalla";
+            this.btnBatalla.Size = new System.Drawing.Size(156, 23);
+            this.btnBatalla.TabIndex = 5;
+            this.btnBatalla.Text = "Batalla";
+            this.btnBatalla.UseVisualStyleBackColor = true;
             // 
             // ViewPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 292);
+            this.Controls.Add(this.btnBatalla);
             this.Controls.Add(this.imgPersonaje);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnCrear);
@@ -99,6 +111,7 @@ namespace JuegoRol.View
             this.Controls.Add(this.lbxPersonajes);
             this.Name = "ViewPrincipal";
             this.Text = "ViewPrincipal";
+            this.VisibleChanged += new System.EventHandler(this.ViewPrincipal_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.imgPersonaje)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -112,6 +125,7 @@ namespace JuegoRol.View
         private System.Windows.Forms.Button btnCrear;
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.PictureBox imgPersonaje;
+        private Button btnBatalla;
 
         public ListBox LbxPersonajes { get => lbxPersonajes; set => lbxPersonajes = value; }
         public Label Label1 { get => label1; set => label1 = value; }
