@@ -3,9 +3,11 @@ using JuegoRol.View;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace JuegoRol.Controller
 {
@@ -55,7 +57,8 @@ namespace JuegoRol.Controller
         {
             int indice = vista.LbxPersonajes.SelectedIndex;
             string tipo = gp.Personajes.ElementAt(indice).Tipo.ToString();
-            vista.ImgPersonaje.Image = Image.FromFile($@"..\Resources\{tipo}.png");
+            string ruta = $@"..\..\..\Resources\{tipo}.png";
+            vista.ImgPersonaje.Image = Image.FromFile(ruta);
         }
     }
 }
