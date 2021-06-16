@@ -12,12 +12,10 @@ namespace JuegoRol.View
 {
     public partial class ViewBatalla : Form
     {
-        private Form padre;
 
-        public ViewBatalla(Form padre)
+        public ViewBatalla()
         {
             InitializeComponent();
-            this.padre = padre;
         }
     }
 }

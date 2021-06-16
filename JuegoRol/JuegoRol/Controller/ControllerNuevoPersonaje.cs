@@ -35,7 +35,6 @@ namespace JuegoRol.Controller
         public void Cerrar()
         {
             vista.Dispose();
-            vista.Padre.Show();
         }
     }
 }

@@ -45,6 +45,8 @@ namespace JuegoRol.Controller
 
             ViewNuevoPersonaje vistaNP = new ViewNuevoPersonaje(vista);
             vistaNP.ShowDialog();
+
+            vista.Show();
         } 
 
         public void BorrarPersonaje()

@@ -14,15 +14,10 @@ namespace JuegoRol
 {
     public partial class ViewNuevoPersonaje : Form
     {
-        // Guardo la ventana de la que se invoco esta para poder abrirla de nuevo luego
-        private Form padre;
         private ControllerNuevoPersonaje controller;
 
-        public Form Padre { get => padre;}
-
-        public ViewNuevoPersonaje(Form padre)
+        public ViewNuevoPersonaje()
         {
-            this.padre = padre;
             InitializeComponent();
             this.controller = new ControllerNuevoPersonaje(this);
         }
