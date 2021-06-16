@@ -1,5 +1,6 @@
 ﻿using JuegoRol.Model;
 using JuegoRol.View;
+using System.Reflection;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -54,19 +55,54 @@ namespace JuegoRol.Controller
             vista.LbxPersonajes.Items.RemoveAt(indice);
         }
 
-        public void CambiarImagen()
+        public void CambiarPersonaje()
         {
-            if (vista.LbxPersonajes.SelectedIndex != -1) 
+            if (GetIndice() != -1) 
             {
-                int indice = vista.LbxPersonajes.SelectedIndex;
+                int indice = GetIndice();
                 string tipo = gp.Personajes.ElementAt(indice).Tipo.ToString();
                 string ruta = $@"..\..\..\Resources\{tipo}.png";
                 vista.ImgPersonaje.Image = Image.FromFile(ruta);
+                MostrarStats();
             }
             else
             {
                 vista.ImgPersonaje.Image = null;
             }
+        }
+
+        private int GetIndice()
+        {
+            return vista.LbxPersonajes.SelectedIndex;
+        }
+
+        public void MostrarStats()
+        {
+            Personaje PJ = gp.Personajes.ElementAt(GetIndice());
+            //Type datos = typeof(Personaje);
+            //int y = 25;
+
+            vista.LblNombre.Text = $"Nombre: {PJ.Nombre}";
+            vista.LblApodo.Text = $"Apodo: {PJ.Apodo}";
+            vista.LblEdad.Text = $"Edad: {PJ.Edad.ToString()} Años";
+            vista.LblFecha.Text = $"Nacimiento: {PJ.FechaNacimiento.Date.ToString()}";
+            vista.LblNivel.Text = $"Nivel: {PJ.Nivel.ToString()}";
+            vista.LblFuerza.Text = $"Fuerza: {PJ.Fuerza.ToString()}";
+            vista.LblVelocidad.Text = $"Velocidad: {PJ.Velocidad.ToString()}";
+            vista.LblDestreza.Text = $"Destreza: {PJ.Destreza.ToString()}";
+            vista.LblArmadura.Text = $"Armadura: {PJ.Armadura.ToString()}";
+            vista.LblSalud.Text = $"Salud: {PJ.Salud.ToString()}";
+
+            // Intenté crear dinamicamente los labels de los datos de los personajes pero no funcionó como esperaba
+            //foreach (FieldInfo campo in datos.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance))
+            //{
+            //    Label lbl = new Label();
+            //    lbl.Size = new Size(20, 5);
+            //    lbl.Location = new Point(460,y);
+            //    lbl.Text = $"{campo.Name}: {campo.GetValue(personaje)}";
+            //    vista.Controls.Add(lbl);
+            //    y += 15;
+            //}
         }
     }
 }

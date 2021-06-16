@@ -16,7 +16,7 @@ namespace JuegoRol.View
 
         private void lbPersonajes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            controller.CambiarImagen();
+            controller.CambiarPersonaje();
         }
 
         private void btnCrear_Click(object sender, EventArgs e)
