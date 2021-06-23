@@ -1,4 +1,6 @@
-﻿using System;
+﻿using JuegoRol.Controller;
+using JuegoRol.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +14,21 @@ namespace JuegoRol.View
 {
     public partial class ViewBatalla : Form
     {
-
-        public ViewBatalla()
+        ControllerBatalla controller;
+        public ViewBatalla(Personaje player, Personaje cpu)
         {
             InitializeComponent();
+            this.controller = new ControllerBatalla(this, player, cpu);
+        }
+
+        private void ViewBatalla_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void progressBar1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
