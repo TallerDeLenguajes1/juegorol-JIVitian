@@ -49,16 +49,9 @@ namespace JuegoRol.Model
             nivel = 1;
         }
 
-        
-
         public override string ToString()
         {
-            return $"{Nombre} Alias {Apodo}";
-        }
-
-        public void getCaracteristicas()
-        {
-
+            return $"{Nombre} ~ {Apodo}";
         }
     }
 }

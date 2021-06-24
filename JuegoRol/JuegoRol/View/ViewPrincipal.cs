@@ -33,5 +33,10 @@ namespace JuegoRol.View
         {
             controller.ActualizarLista();
         }
+
+        private void btnBatalla_Click(object sender, EventArgs e)
+        {
+            controller.AbrirVistaBatalla();
+        }
     }
 }

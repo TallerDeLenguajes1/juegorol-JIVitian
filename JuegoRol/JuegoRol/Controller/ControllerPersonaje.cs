@@ -1,13 +1,8 @@
 ﻿using JuegoRol.Model;
 using JuegoRol.View;
-using System.Reflection;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JuegoRol.Controller
@@ -43,11 +38,11 @@ namespace JuegoRol.Controller
         {
             vista.Hide();
 
-            ViewNuevoPersonaje vistaNP = new ViewNuevoPersonaje(vista);
+            ViewNuevoPersonaje vistaNP = new ViewNuevoPersonaje();
             vistaNP.ShowDialog();
 
             vista.Show();
-        } 
+        }
 
         public void BorrarPersonaje()
         {
@@ -59,10 +54,10 @@ namespace JuegoRol.Controller
 
         public void CambiarPersonaje()
         {
-            if (GetIndice() != -1) 
+            int indice = GetIndice();
+            if (indice != -1)
             {
-                int indice = GetIndice();
-                string tipo = gp.Personajes.ElementAt(indice).Tipo.ToString();
+                string tipo = GetPersonaje(indice).Tipo.ToString();
                 string ruta = $@"..\..\..\Resources\{tipo}.png";
                 vista.ImgPersonaje.Image = Image.FromFile(ruta);
                 MostrarStats();
@@ -78,33 +73,70 @@ namespace JuegoRol.Controller
             return vista.LbxPersonajes.SelectedIndex;
         }
 
-        public void MostrarStats()
+        private Personaje GetPersonaje()
         {
-            Personaje PJ = gp.Personajes.ElementAt(GetIndice());
-            //Type datos = typeof(Personaje);
-            //int y = 25;
+            return gp.Personajes.ElementAt(GetIndice());
+        }
+
+        private Personaje GetPersonaje(int index)
+        {
+            return gp.Personajes.ElementAt(index);
+        }
+
+        private void MostrarStats()
+        {
+            Personaje PJ = GetPersonaje();
 
             vista.LblNombre.Text = $"Nombre: {PJ.Nombre}";
             vista.LblApodo.Text = $"Apodo: {PJ.Apodo}";
             vista.LblEdad.Text = $"Edad: {PJ.Edad.ToString()} Años";
-            vista.LblFecha.Text = $"Nacimiento: {PJ.FechaNacimiento.Date.ToString()}";
+            vista.LblFecha.Text = $"Nacimiento: {PJ.FechaNacimiento.Date.ToString("dd/MM/yyyy")}";
             vista.LblNivel.Text = $"Nivel: {PJ.Nivel.ToString()}";
             vista.LblFuerza.Text = $"Fuerza: {PJ.Fuerza.ToString()}";
             vista.LblVelocidad.Text = $"Velocidad: {PJ.Velocidad.ToString()}";
             vista.LblDestreza.Text = $"Destreza: {PJ.Destreza.ToString()}";
             vista.LblArmadura.Text = $"Armadura: {PJ.Armadura.ToString()}";
             vista.LblSalud.Text = $"Salud: {PJ.Salud.ToString()}";
+        }
 
-            // Intenté crear dinamicamente los labels de los datos de los personajes pero no funcionó como esperaba
-            //foreach (FieldInfo campo in datos.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance))
-            //{
-            //    Label lbl = new Label();
-            //    lbl.Size = new Size(20, 5);
-            //    lbl.Location = new Point(460,y);
-            //    lbl.Text = $"{campo.Name}: {campo.GetValue(personaje)}";
-            //    vista.Controls.Add(lbl);
-            //    y += 15;
-            //}
+        public void AbrirVistaBatalla()
+        {
+            if (vista.LbxPersonajes.Items.Count > 1)
+            {
+                if(GetIndice() != -1)
+                {
+                    Personaje player, cpu;
+
+                    Random random = new Random();
+                    player = GetPersonaje();
+                    cpu = SeleccionarCPU();
+
+                    vista.Hide();
+
+                    ViewBatalla vistaB = new ViewBatalla(player, cpu);
+                    vistaB.ShowDialog();
+
+                    vista.Show();
+                }
+            } else
+            {
+                MessageBox.Show("Debe haber por lo menos 2 personajes para iniciar una batalla.", "Error");
+            }
+        }
+
+        private Personaje SeleccionarCPU()
+        {
+            Personaje cpu = PersonajeAleatorio();
+            while (cpu == GetPersonaje())
+                cpu = PersonajeAleatorio();
+
+            return cpu;
+        }
+
+        private Personaje PersonajeAleatorio()
+        {
+            Random random = new Random();
+            return GetPersonaje(random.Next(0, vista.LbxPersonajes.Items.Count));
         }
     }
 }

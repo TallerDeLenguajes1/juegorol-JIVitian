@@ -110,6 +110,7 @@ namespace JuegoRol.View
             this.btnBatalla.TabIndex = 5;
             this.btnBatalla.Text = "Batalla";
             this.btnBatalla.UseVisualStyleBackColor = true;
+            this.btnBatalla.Click += new System.EventHandler(this.btnBatalla_Click);
             // 
             // label2
             // 

@@ -21,14 +21,9 @@ namespace JuegoRol.View
             this.controller = new ControllerBatalla(this, player, cpu);
         }
 
-        private void ViewBatalla_Load(object sender, EventArgs e)
+        private void btnAtacarPlayer_Click(object sender, EventArgs e)
         {
-            
-        }
-
-        private void progressBar1_Click(object sender, EventArgs e)
-        {
-
+            controller.Atacar();
         }
     }
 }

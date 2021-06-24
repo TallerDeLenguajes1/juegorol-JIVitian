@@ -1,4 +1,6 @@
 ﻿
+using System.Windows.Forms;
+
 namespace JuegoRol.View
 {
     partial class ViewBatalla
@@ -45,7 +47,6 @@ namespace JuegoRol.View
             // 
             // imgPlayer
             // 
-            this.imgPlayer.Image = global::JuegoRol.Properties.Resources.Arquero;
             this.imgPlayer.Location = new System.Drawing.Point(12, 29);
             this.imgPlayer.Name = "imgPlayer";
             this.imgPlayer.Size = new System.Drawing.Size(180, 220);
@@ -55,7 +56,6 @@ namespace JuegoRol.View
             // 
             // imgCpu
             // 
-            this.imgCpu.Image = global::JuegoRol.Properties.Resources.Paladin;
             this.imgCpu.Location = new System.Drawing.Point(441, 28);
             this.imgCpu.Name = "imgCpu";
             this.imgCpu.Size = new System.Drawing.Size(180, 220);
@@ -71,15 +71,16 @@ namespace JuegoRol.View
             this.btnAtacarPlayer.TabIndex = 2;
             this.btnAtacarPlayer.Text = "Atacar";
             this.btnAtacarPlayer.UseVisualStyleBackColor = true;
+            this.btnAtacarPlayer.Click += new System.EventHandler(this.btnAtacarPlayer_Click);
             // 
             // lbNombrePlayer
             // 
-            this.lbNombrePlayer.AutoSize = true;
-            this.lbNombrePlayer.Location = new System.Drawing.Point(77, 251);
+            this.lbNombrePlayer.Location = new System.Drawing.Point(12, 251);
             this.lbNombrePlayer.Name = "lbNombrePlayer";
-            this.lbNombrePlayer.Size = new System.Drawing.Size(51, 15);
+            this.lbNombrePlayer.Size = new System.Drawing.Size(180, 15);
             this.lbNombrePlayer.TabIndex = 3;
             this.lbNombrePlayer.Text = "Nombre";
+            this.lbNombrePlayer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // VidaPlayer
             // 
@@ -88,16 +89,15 @@ namespace JuegoRol.View
             this.VidaPlayer.Size = new System.Drawing.Size(160, 11);
             this.VidaPlayer.TabIndex = 4;
             this.VidaPlayer.Value = 100;
-            this.VidaPlayer.Click += new System.EventHandler(this.progressBar1_Click);
             // 
             // lbNivelPlayer
             // 
-            this.lbNivelPlayer.AutoSize = true;
-            this.lbNivelPlayer.Location = new System.Drawing.Point(77, 279);
+            this.lbNivelPlayer.Location = new System.Drawing.Point(12, 279);
             this.lbNivelPlayer.Name = "lbNivelPlayer";
-            this.lbNivelPlayer.Size = new System.Drawing.Size(34, 15);
+            this.lbNivelPlayer.Size = new System.Drawing.Size(180, 15);
             this.lbNivelPlayer.TabIndex = 5;
             this.lbNivelPlayer.Text = "Nivel";
+            this.lbNivelPlayer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // vidaCpu
             // 
@@ -118,21 +118,21 @@ namespace JuegoRol.View
             // 
             // lbNivelCpu
             // 
-            this.lbNivelCpu.AutoSize = true;
-            this.lbNivelCpu.Location = new System.Drawing.Point(514, 278);
+            this.lbNivelCpu.Location = new System.Drawing.Point(441, 279);
             this.lbNivelCpu.Name = "lbNivelCpu";
-            this.lbNivelCpu.Size = new System.Drawing.Size(34, 15);
+            this.lbNivelCpu.Size = new System.Drawing.Size(180, 15);
             this.lbNivelCpu.TabIndex = 8;
             this.lbNivelCpu.Text = "Nivel";
+            this.lbNivelCpu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbNombreCpu
             // 
-            this.lbNombreCpu.AutoSize = true;
-            this.lbNombreCpu.Location = new System.Drawing.Point(514, 251);
+            this.lbNombreCpu.Location = new System.Drawing.Point(441, 251);
             this.lbNombreCpu.Name = "lbNombreCpu";
-            this.lbNombreCpu.Size = new System.Drawing.Size(51, 15);
+            this.lbNombreCpu.Size = new System.Drawing.Size(180, 15);
             this.lbNombreCpu.TabIndex = 9;
             this.lbNombreCpu.Text = "Nombre";
+            this.lbNombreCpu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ViewBatalla
             // 
@@ -151,11 +151,9 @@ namespace JuegoRol.View
             this.Controls.Add(this.imgPlayer);
             this.Name = "ViewBatalla";
             this.Text = "ViewBatalla";
-            this.Load += new System.EventHandler(this.ViewBatalla_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imgPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgCpu)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -171,5 +169,16 @@ namespace JuegoRol.View
         private System.Windows.Forms.Button btnAtacarCpu;
         private System.Windows.Forms.Label lbNivelCpu;
         private System.Windows.Forms.Label lbNombreCpu;
+
+        public PictureBox ImgPlayer { get => imgPlayer; set => imgPlayer = value; }
+        public PictureBox ImgCpu { get => imgCpu; set => imgCpu = value; }
+        public Button BtnAtacarPlayer { get => btnAtacarPlayer; set => btnAtacarPlayer = value; }
+        public Label LbNombrePlayer { get => lbNombrePlayer; set => lbNombrePlayer = value; }
+        public ProgressBar VidaPlayer1 { get => VidaPlayer; set => VidaPlayer = value; }
+        public Label LbNivelPlayer { get => lbNivelPlayer; set => lbNivelPlayer = value; }
+        public ProgressBar VidaCpu { get => vidaCpu; set => vidaCpu = value; }
+        public Button BtnAtacarCpu { get => btnAtacarCpu; set => btnAtacarCpu = value; }
+        public Label LbNivelCpu { get => lbNivelCpu; set => lbNivelCpu = value; }
+        public Label LbNombreCpu { get => lbNombreCpu; set => lbNombreCpu = value; }
     }
 }
