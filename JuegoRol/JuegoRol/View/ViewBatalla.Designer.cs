@@ -38,7 +38,6 @@ namespace JuegoRol.View
             this.VidaPlayer = new System.Windows.Forms.ProgressBar();
             this.lbNivelPlayer = new System.Windows.Forms.Label();
             this.vidaCpu = new System.Windows.Forms.ProgressBar();
-            this.btnAtacarCpu = new System.Windows.Forms.Button();
             this.lbNivelCpu = new System.Windows.Forms.Label();
             this.lbNombreCpu = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgPlayer)).BeginInit();
@@ -65,7 +64,7 @@ namespace JuegoRol.View
             // 
             // btnAtacarPlayer
             // 
-            this.btnAtacarPlayer.Location = new System.Drawing.Point(52, 297);
+            this.btnAtacarPlayer.Location = new System.Drawing.Point(271, 209);
             this.btnAtacarPlayer.Name = "btnAtacarPlayer";
             this.btnAtacarPlayer.Size = new System.Drawing.Size(90, 40);
             this.btnAtacarPlayer.TabIndex = 2;
@@ -107,15 +106,6 @@ namespace JuegoRol.View
             this.vidaCpu.TabIndex = 6;
             this.vidaCpu.Value = 100;
             // 
-            // btnAtacarCpu
-            // 
-            this.btnAtacarCpu.Location = new System.Drawing.Point(488, 296);
-            this.btnAtacarCpu.Name = "btnAtacarCpu";
-            this.btnAtacarCpu.Size = new System.Drawing.Size(90, 40);
-            this.btnAtacarCpu.TabIndex = 7;
-            this.btnAtacarCpu.Text = "Atacar";
-            this.btnAtacarCpu.UseVisualStyleBackColor = true;
-            // 
             // lbNivelCpu
             // 
             this.lbNivelCpu.Location = new System.Drawing.Point(441, 279);
@@ -138,10 +128,9 @@ namespace JuegoRol.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(637, 356);
+            this.ClientSize = new System.Drawing.Size(634, 356);
             this.Controls.Add(this.lbNombreCpu);
             this.Controls.Add(this.lbNivelCpu);
-            this.Controls.Add(this.btnAtacarCpu);
             this.Controls.Add(this.vidaCpu);
             this.Controls.Add(this.lbNivelPlayer);
             this.Controls.Add(this.VidaPlayer);
@@ -166,7 +155,6 @@ namespace JuegoRol.View
         private System.Windows.Forms.ProgressBar VidaPlayer;
         private System.Windows.Forms.Label lbNivelPlayer;
         private System.Windows.Forms.ProgressBar vidaCpu;
-        private System.Windows.Forms.Button btnAtacarCpu;
         private System.Windows.Forms.Label lbNivelCpu;
         private System.Windows.Forms.Label lbNombreCpu;
 
@@ -177,7 +165,6 @@ namespace JuegoRol.View
         public ProgressBar VidaPlayer1 { get => VidaPlayer; set => VidaPlayer = value; }
         public Label LbNivelPlayer { get => lbNivelPlayer; set => lbNivelPlayer = value; }
         public ProgressBar VidaCpu { get => vidaCpu; set => vidaCpu = value; }
-        public Button BtnAtacarCpu { get => btnAtacarCpu; set => btnAtacarCpu = value; }
         public Label LbNivelCpu { get => lbNivelCpu; set => lbNivelCpu = value; }
         public Label LbNombreCpu { get => lbNombreCpu; set => lbNombreCpu = value; }
     }

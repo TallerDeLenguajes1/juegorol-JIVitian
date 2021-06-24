@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace JuegoRol.Controller
 {
@@ -26,10 +28,20 @@ namespace JuegoRol.Controller
             string apodo = vista.TxtNick.Text;
             TipoPersonaje tipo = (TipoPersonaje)vista.CbType.SelectedItem;
             DateTime fechaNacimiento = vista.DtDate.Value;
+            if (Verificar(nombre) && Verificar(apodo))
+            {
+                gp.NuevoPersonaje(nombre, apodo, tipo, fechaNacimiento);
+                Cerrar();
+            }
+            else MessageBox.Show("El personaje debe tener un nombre y un apodo", "Error");
+        }
 
-            gp.NuevoPersonaje(nombre, apodo, tipo, fechaNacimiento);
+        private bool Verificar(string texto)
+        {
+            string expresionValida = @"\A[a-zA-Z]+\z";
+            Regex reg = new Regex(expresionValida);
 
-            Cerrar();
+            return reg.IsMatch(texto);
         }
 
         public void Cerrar()

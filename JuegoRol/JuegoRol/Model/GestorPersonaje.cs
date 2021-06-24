@@ -95,30 +95,10 @@ namespace JuegoRol.Model
             personajes.Add(personaje);
         }
 
-        //public void MostrarPersonajes()
-        //{
-        //    LinkedListNode<Personaje> p = personajes.First;
-        //    while (p != null)
-        //    {
-        //        Console.WriteLine(p.Value);
-        //        p = p.Next;
-        //    }
-        //}
-
-        //public Personaje getPersonaje()
-        //{
-        //    return new Personaje();
-        //}
-
         public void BorrarPersonaje(int indice)
         {
             Personajes.RemoveAt(indice);
         }
-
-        //public void LeerPersonajes()
-        //{
-
-        //}
 
         //public void ActualizarPersonaje()
         //{

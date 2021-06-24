@@ -11,11 +11,13 @@ namespace JuegoRol.Controller
     {
         private ViewPrincipal vista;
         private GestorPersonaje gp;
+        private bool yaPelearon;
 
         public ControllerPersonaje(ViewPrincipal vista)
         {
             this.vista = vista;
-            this.gp = GestorPersonaje.Instanciar();
+            gp = GestorPersonaje.Instanciar();
+            yaPelearon = false;
             ActualizarLista();
         }
 
@@ -30,7 +32,6 @@ namespace JuegoRol.Controller
                 // Llena la lista con los valores de la lista del gestor personaje
                 foreach (Personaje personaje in gp.Personajes)
                     vista.LbxPersonajes.Items.Add(personaje);
-                vista.LbxPersonajes.SetSelected(0, true);
             }
         }
 
@@ -101,6 +102,7 @@ namespace JuegoRol.Controller
 
         public void AbrirVistaBatalla()
         {
+            yaPelearon = true;
             if (vista.LbxPersonajes.Items.Count > 1)
             {
                 if(GetIndice() != -1)
@@ -116,6 +118,20 @@ namespace JuegoRol.Controller
                     ViewBatalla vistaB = new ViewBatalla(player, cpu);
                     vistaB.ShowDialog();
 
+                    if(player.Salud == 0)
+                    {
+                        gp.Personajes.Remove(player);
+                        vista.LbxPersonajes.SetSelected(gp.Personajes.IndexOf(cpu), true);
+                        SubirNivel(cpu);
+                    }
+                    else
+                    {
+                        gp.Personajes.Remove(cpu);
+                        vista.LbxPersonajes.SetSelected(gp.Personajes.IndexOf(player), true);
+                        SubirNivel(player);
+                    }
+
+                    VerificarGanador();
                     vista.Show();
                 }
             } else
@@ -137,6 +153,21 @@ namespace JuegoRol.Controller
         {
             Random random = new Random();
             return GetPersonaje(random.Next(0, vista.LbxPersonajes.Items.Count));
+        }
+
+        public void VerificarGanador()
+        {
+            if (yaPelearon && gp.Personajes.Count == 1)
+                MessageBox.Show($"El Ganador es {gp.Personajes.First()}", "FELICIDADES");
+        }
+
+        private void SubirNivel(Personaje pj)
+        {
+            pj.Nivel++;
+            pj.Salud = (pj.Salud < 90) ? pj.Salud + 10 : 100;
+            pj.Fuerza++;
+            pj.Velocidad++;
+            pj.Destreza = (pj.Destreza <= 4) ? pj.Destreza + 1 : 5;
         }
     }
 }
