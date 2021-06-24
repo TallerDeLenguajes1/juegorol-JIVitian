@@ -23,7 +23,7 @@ namespace JuegoRol.View
 
         private void btnAtacarPlayer_Click(object sender, EventArgs e)
         {
-            controller.Atacar();
+            controller.Luchar();
         }
     }
 }

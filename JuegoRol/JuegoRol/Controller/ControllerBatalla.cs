@@ -57,62 +57,53 @@ namespace JuegoRol.Controller
             sonido.Play();
         }
 
-        public void Atacar()
+        public void Luchar()
         {
             int ronda = 0;
+            // La batalla durará 3 rondas o hasta que alguno de los personajes se quede sin vida
             while (player.Salud > 0 && cpu.Salud > 0 && ronda < 3)
             {
+                // El personaje que tiene mas velocidad ataca primero
                 if (player.Velocidad > cpu.Velocidad)
-                {
-                    CalcularDanio(player, cpu);
-                    BajarVida(vista.VidaCpu, cpu.Salud);
-                    EmitirSonido();
-
-                    if (cpu.Salud > 0)
-                    {
-                        CalcularDanio(cpu, player);
-                        BajarVida(vista.VidaPlayer1, player.Salud);
-                        EmitirSonido();
-                    }
-                }
+                    IniciarRonda(player, cpu, vista.VidaPlayer1, vista.VidaCpu);
                 else
-                {
-                    CalcularDanio(cpu, player);
-                    BajarVida(vista.VidaPlayer1, player.Salud);
-                    EmitirSonido();
-
-                    if (player.Salud > 0)
-                    {
-                        CalcularDanio(player, cpu);
-                        BajarVida(vista.VidaCpu, cpu.Salud);
-                        EmitirSonido();
-                    }
-                }
+                    IniciarRonda(cpu, player, vista.VidaCpu, vista.VidaPlayer1);
                 ronda++;
             }
 
             if (cpu.Salud > player.Salud)
-            {
-                MessageBox.Show("Gana CPU");
-            }
+                MessageBox.Show($"El ganador es: {cpu}");
             else
-            {
-                MessageBox.Show("Gana Player");
-            }
+                MessageBox.Show($"El ganador es: {player}");
+
             vista.Dispose();
+        }
+
+        private void IniciarRonda(Personaje pj1, Personaje pj2, ProgressBar barraPj1, ProgressBar barraPj2)
+        {
+            Atacar(pj1, pj2, barraPj2);
+            // Si el personaje atacado resiste, contrataca
+            if (pj2.Salud > 0) Atacar(pj2, pj1, barraPj1);
+        }
+
+        private void Atacar(Personaje atacante, Personaje atacado, ProgressBar barra)
+        {
+            CalcularDanio(atacante, atacado);
+            BajarVida(barra, atacado.Salud);
+            EmitirSonido();
         }
 
         private void CalcularDanio(Personaje pj, Personaje pj2)
         {
             Random random = new Random();
             int poder, efectividad, valor, defensa, danio;
-            const int MDP = 50000;
+            const int MDP = 10000;
 
             poder = pj.Destreza * pj.Fuerza * pj.Nivel;
             efectividad = random.Next(1, 101);
             valor = poder * efectividad;
             defensa = pj2.Armadura * pj2.Velocidad;
-            danio = (valor * efectividad - defensa) * 50 / (MDP * 2);
+            danio = (valor * efectividad - defensa) * 100 / (MDP);
 
             pj2.Salud -= danio;
             if (pj2.Salud < 0) pj2.Salud = 0;
@@ -124,7 +115,7 @@ namespace JuegoRol.Controller
             for (int i = valorInicial; i > salud; i--)
             {
                 barra.Value = i;
-                Thread.Sleep(10);
+                Thread.Sleep(15);
             }
         }
     }

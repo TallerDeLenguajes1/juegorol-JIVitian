@@ -32,6 +32,7 @@ namespace JuegoRol.Controller
                 // Llena la lista con los valores de la lista del gestor personaje
                 foreach (Personaje personaje in gp.Personajes)
                     vista.LbxPersonajes.Items.Add(personaje);
+                vista.LbxPersonajes.SelectedItem = 0;
             }
         }
 
@@ -114,24 +115,15 @@ namespace JuegoRol.Controller
                     cpu = SeleccionarCPU();
 
                     vista.Hide();
-
                     ViewBatalla vistaB = new ViewBatalla(player, cpu);
                     vistaB.ShowDialog();
 
                     if(player.Salud == 0)
-                    {
-                        gp.Personajes.Remove(player);
-                        vista.LbxPersonajes.SetSelected(gp.Personajes.IndexOf(cpu), true);
-                        SubirNivel(cpu);
-                    }
+                        BatallaTerminada(cpu, player);
                     else
-                    {
-                        gp.Personajes.Remove(cpu);
-                        vista.LbxPersonajes.SetSelected(gp.Personajes.IndexOf(player), true);
-                        SubirNivel(player);
-                    }
+                        BatallaTerminada(player, cpu);
 
-                    VerificarGanador();
+                    VerificarCampeon();
                     vista.Show();
                 }
             } else
@@ -143,8 +135,8 @@ namespace JuegoRol.Controller
         private Personaje SeleccionarCPU()
         {
             Personaje cpu = PersonajeAleatorio();
-            while (cpu == GetPersonaje())
-                cpu = PersonajeAleatorio();
+            // Si los dos personajes son iguales, se elige otro.
+            while (cpu == GetPersonaje()) cpu = PersonajeAleatorio();
 
             return cpu;
         }
@@ -155,10 +147,17 @@ namespace JuegoRol.Controller
             return GetPersonaje(random.Next(0, vista.LbxPersonajes.Items.Count));
         }
 
-        public void VerificarGanador()
+        public void VerificarCampeon()
         {
             if (yaPelearon && gp.Personajes.Count == 1)
                 MessageBox.Show($"El Ganador es {gp.Personajes.First()}", "FELICIDADES");
+        }
+
+        private void BatallaTerminada(Personaje ganador, Personaje perdedor)
+        {
+            gp.Personajes.Remove(perdedor);
+            vista.LbxPersonajes.SelectedItem = gp.Personajes.IndexOf(ganador);
+            SubirNivel(ganador);
         }
 
         private void SubirNivel(Personaje pj)
