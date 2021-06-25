@@ -1,14 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace JuegoRol.Model
 {
-    public static class TestPersonaje
+    public class Nombre 
+    {
+        [JsonPropertyName("codigo")]
+        public List<string> codigo { get; set; } 
+    }
+
+    public class TestPersonaje
     {
         private static Random aleatorio = new Random();
+        private static Nombre Nombres = new Nombre();
 
         private static GestorPersonaje gestor = GestorPersonaje.Instanciar();
 
@@ -41,12 +53,47 @@ namespace JuegoRol.Model
             return tipo;
         }
 
+        public static void ConsumirAPINombre()
+        {
+            var url = $"http://ensaimeitor.apsl.net/personas/1/?format=json&num=1";
+            var request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "GET";
+            request.ContentType = "application/json";
+            request.Accept = "application/json";
+
+            try
+            {
+                using (WebResponse response = request.GetResponse())
+                {
+                    using (Stream strReader = response.GetResponseStream())
+                    {
+                        if (strReader != null)
+                        {
+                            using (StreamReader objReader = new StreamReader(strReader))
+                            {
+                                string responseBody = objReader.ReadToEnd();
+                                Nombres = JsonSerializer.Deserialize<Nombre>(responseBody);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            
+
+        }
+
         public static string generarNombre()
         {
-            string[] nombres = { "Carlos", "Maria", "Pedro", "Juan", "Lucia" };
-            string[] apellidos = { "Perez", "Gonzales", "Ramirez", "Albornoz", "Torres" };
+            ConsumirAPINombre();
+            //string[] nombres = { "Carlos", "Maria", "Pedro", "Juan", "Lucia" };
+            //string[] apellidos = { "Perez", "Gonzales", "Ramirez", "Albornoz", "Torres" };
 
-            return nombres[aleatorio.Next(nombres.Length - 1)] + " " + apellidos[aleatorio.Next(apellidos.Length - 1)];
+
+            return Nombres.codigo.First();
         }
 
         public static string generarApodo()
