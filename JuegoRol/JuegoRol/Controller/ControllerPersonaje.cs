@@ -3,6 +3,7 @@ using JuegoRol.View;
 using System;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Windows.Forms;
 
 namespace JuegoRol.Controller
@@ -118,9 +119,9 @@ namespace JuegoRol.Controller
                     ViewBatalla vistaB = new ViewBatalla(player, cpu);
                     vistaB.ShowDialog();
 
-                    if(player.Salud == 0)
+                    if(player.Salud < cpu.Salud)
                         BatallaTerminada(cpu, player);
-                    else
+                    if (player.Salud > cpu.Salud)
                         BatallaTerminada(player, cpu);
 
                     VerificarCampeon();
@@ -150,13 +151,20 @@ namespace JuegoRol.Controller
         public void VerificarCampeon()
         {
             if (yaPelearon && gp.Personajes.Count == 1)
+            {
+                SoundPlayer sonido = new SoundPlayer();
+                sonido.SoundLocation = @"..\..\..\Resources\Win.wav";
+                sonido.Load();
+                sonido.Play();
                 MessageBox.Show($"El Ganador es {gp.Personajes.First()}", "FELICIDADES");
+            }
         }
 
         private void BatallaTerminada(Personaje ganador, Personaje perdedor)
         {
             gp.Personajes.Remove(perdedor);
             vista.LbxPersonajes.SelectedItem = gp.Personajes.IndexOf(ganador);
+            vista.LbxPersonajes.SetSelected(gp.Personajes.IndexOf(ganador), true);
             SubirNivel(ganador);
         }
 

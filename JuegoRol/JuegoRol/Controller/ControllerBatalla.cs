@@ -3,8 +3,10 @@ using JuegoRol.View;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Media;
+using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -25,12 +27,13 @@ namespace JuegoRol.Controller
             CargarImagenes();
             CargarLabels();
             ActualizarVida();
+            ConsumirAPI();
         }
 
         private void CargarImagenes()
         {
-            string rutaPlayer = $@"..\..\..\Resources\{player.Tipo.ToString()}.png";
-            string rutaCpu = $@"..\..\..\Resources\{cpu.Tipo.ToString()}.png";
+            string rutaPlayer = $@"..\..\..\Resources\{player.Tipo}.png";
+            string rutaCpu = $@"..\..\..\Resources\{cpu.Tipo}.png";
             vista.ImgPlayer.Image = Image.FromFile(rutaPlayer);
             vista.ImgCpu.Image = Image.FromFile(rutaCpu);
         }
@@ -73,8 +76,10 @@ namespace JuegoRol.Controller
 
             if (cpu.Salud > player.Salud)
                 MessageBox.Show($"El ganador es: {cpu}");
-            else
+            else if (cpu.Salud < player.Salud)
                 MessageBox.Show($"El ganador es: {player}");
+            else
+                MessageBox.Show("Empate!");
 
             vista.Dispose();
         }
@@ -89,15 +94,15 @@ namespace JuegoRol.Controller
         private void Atacar(Personaje atacante, Personaje atacado, ProgressBar barra)
         {
             CalcularDanio(atacante, atacado);
-            BajarVida(barra, atacado.Salud);
             EmitirSonido();
+            BajarVida(barra, atacado.Salud);
         }
 
         private void CalcularDanio(Personaje pj, Personaje pj2)
         {
             Random random = new Random();
             int poder, efectividad, valor, defensa, danio;
-            const int MDP = 10000;
+            const int MDP = 500000;
 
             poder = pj.Destreza * pj.Fuerza * pj.Nivel;
             efectividad = random.Next(1, 101);
@@ -115,7 +120,34 @@ namespace JuegoRol.Controller
             for (int i = valorInicial; i > salud; i--)
             {
                 barra.Value = i;
-                Thread.Sleep(15);
+                Thread.Sleep(25);
+            }
+        }
+
+        /**
+         * <summary>Consume una API que proporciona imagenes aleatorias para el fondo de la vista de batallas</summary>
+         */
+        private void ConsumirAPI()
+        {
+            var url = $"https://source.unsplash.com/random/?scenery,medieval";
+            var request = WebRequest.Create(url);
+
+            try
+            {
+                using (WebResponse response = request.GetResponse())
+                {
+                    using (Stream strReader = response.GetResponseStream())
+                    {
+                        if (strReader != null)
+                        {
+                            vista.BackgroundImage = Bitmap.FromStream(strReader);
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
             }
         }
     }

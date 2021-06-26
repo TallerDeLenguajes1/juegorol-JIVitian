@@ -89,18 +89,15 @@ namespace JuegoRol.Model
         public static string generarNombre()
         {
             ConsumirAPINombre();
-            //string[] nombres = { "Carlos", "Maria", "Pedro", "Juan", "Lucia" };
-            //string[] apellidos = { "Perez", "Gonzales", "Ramirez", "Albornoz", "Torres" };
-
 
             return Nombres.codigo.First();
         }
 
         public static string generarApodo()
         {
-            string[] apodos = { "Pepe", "Gordo", "Alto", "Flaco", "Cangurin" };
+            string[] apodos = { "Pepe", "Gordo", "Alto", "Flaco", "Cangurin", "Zapato Roto" };
 
-            return apodos[aleatorio.Next(apodos.Length - 1)];
+            return apodos[aleatorio.Next(apodos.Length)];
         }
 
         public static DateTime generarFechaNacimiento()

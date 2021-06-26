@@ -46,6 +46,7 @@ namespace JuegoRol.View
             // 
             // imgPlayer
             // 
+            this.imgPlayer.BackColor = System.Drawing.Color.Transparent;
             this.imgPlayer.Location = new System.Drawing.Point(12, 29);
             this.imgPlayer.Name = "imgPlayer";
             this.imgPlayer.Size = new System.Drawing.Size(180, 220);
@@ -55,6 +56,7 @@ namespace JuegoRol.View
             // 
             // imgCpu
             // 
+            this.imgCpu.BackColor = System.Drawing.Color.Transparent;
             this.imgCpu.Location = new System.Drawing.Point(441, 28);
             this.imgCpu.Name = "imgCpu";
             this.imgCpu.Size = new System.Drawing.Size(180, 220);
@@ -68,7 +70,7 @@ namespace JuegoRol.View
             this.btnAtacarPlayer.Name = "btnAtacarPlayer";
             this.btnAtacarPlayer.Size = new System.Drawing.Size(90, 40);
             this.btnAtacarPlayer.TabIndex = 2;
-            this.btnAtacarPlayer.Text = "Atacar";
+            this.btnAtacarPlayer.Text = "Luchar";
             this.btnAtacarPlayer.UseVisualStyleBackColor = true;
             this.btnAtacarPlayer.Click += new System.EventHandler(this.btnAtacarPlayer_Click);
             // 
