@@ -40,6 +40,7 @@ namespace JuegoRol
             this.label3 = new System.Windows.Forms.Label();
             this.btnCrear = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.Aleatorio = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -119,11 +120,22 @@ namespace JuegoRol
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // Aleatorio
+            // 
+            this.Aleatorio.Location = new System.Drawing.Point(29, 262);
+            this.Aleatorio.Name = "Aleatorio";
+            this.Aleatorio.Size = new System.Drawing.Size(163, 23);
+            this.Aleatorio.TabIndex = 9;
+            this.Aleatorio.Text = "Aleatorio";
+            this.Aleatorio.UseVisualStyleBackColor = true;
+            this.Aleatorio.Click += new System.EventHandler(this.Aleatorio_Click);
+            // 
             // ViewNuevoPersonaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(786, 450);
+            this.Controls.Add(this.Aleatorio);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnCrear);
             this.Controls.Add(this.label3);
@@ -151,6 +163,7 @@ namespace JuegoRol
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnCrear;
         private System.Windows.Forms.Button btnCancelar;
+        private Button Aleatorio;
 
         public Button BtnCrear { get => btnCrear; set => btnCrear = value; }
         public Button BtnCancelar { get => btnCancelar; set => btnCancelar = value; }

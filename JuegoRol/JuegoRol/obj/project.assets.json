@@ -43,20 +43,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\danie\\.nuget\\packages\\": {}
+    "C:\\Users\\jivit\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\danie\\Desktop\\Cosas de Ivan\\Facultad\\Licenciatura En Informatica\\2do Anio\\Taller de Lenguajes 1\\Practicos\\Control2\\juegorol-JIVitian\\JuegoRol\\JuegoRol\\JuegoRol.csproj",
+      "projectUniqueName": "C:\\Users\\jivit\\Desktop\\Mis Cosas\\Facultad\\Licenciatura En Informatica\\2do Anio\\Taller de Lenguajes 1\\Practicos\\Control2\\juegorol-JIVitian\\JuegoRol\\JuegoRol\\JuegoRol.csproj",
       "projectName": "JuegoRol",
-      "projectPath": "C:\\Users\\danie\\Desktop\\Cosas de Ivan\\Facultad\\Licenciatura En Informatica\\2do Anio\\Taller de Lenguajes 1\\Practicos\\Control2\\juegorol-JIVitian\\JuegoRol\\JuegoRol\\JuegoRol.csproj",
-      "packagesPath": "C:\\Users\\danie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\danie\\Desktop\\Cosas de Ivan\\Facultad\\Licenciatura En Informatica\\2do Anio\\Taller de Lenguajes 1\\Practicos\\Control2\\juegorol-JIVitian\\JuegoRol\\JuegoRol\\obj\\",
+      "projectPath": "C:\\Users\\jivit\\Desktop\\Mis Cosas\\Facultad\\Licenciatura En Informatica\\2do Anio\\Taller de Lenguajes 1\\Practicos\\Control2\\juegorol-JIVitian\\JuegoRol\\JuegoRol\\JuegoRol.csproj",
+      "packagesPath": "C:\\Users\\jivit\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jivit\\Desktop\\Mis Cosas\\Facultad\\Licenciatura En Informatica\\2do Anio\\Taller de Lenguajes 1\\Practicos\\Control2\\juegorol-JIVitian\\JuegoRol\\JuegoRol\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "C:\\Users\\danie\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\jivit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0-windows7.0"
@@ -104,7 +112,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

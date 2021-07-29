@@ -31,5 +31,10 @@ namespace JuegoRol
         {
             controller.Cerrar();
         }
+
+        private void Aleatorio_Click(object sender, EventArgs e)
+        {
+            controller.CrearAleatorio();
+        }
     }
 }

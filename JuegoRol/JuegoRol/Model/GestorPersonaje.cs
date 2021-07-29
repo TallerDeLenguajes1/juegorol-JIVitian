@@ -1,12 +1,14 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace JuegoRol.Model
 {
     public class GestorPersonaje
     {
         private List<Personaje> personajes;
+
         /** <summary>
          * Este gestor es estatico para que esté en todas las instancias de la clase.
          * </summary>
@@ -100,10 +102,9 @@ namespace JuegoRol.Model
             Personajes.RemoveAt(indice);
         }
 
-        //public void ActualizarPersonaje()
+        //public void CargarLista()
         //{
-
+        //    FileStream archivo = new File.Open();
         //}
-
     }
 }

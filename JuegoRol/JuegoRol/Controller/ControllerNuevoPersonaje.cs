@@ -36,6 +36,12 @@ namespace JuegoRol.Controller
             else MessageBox.Show("El personaje debe tener un nombre y un apodo", "Error");
         }
 
+        public void CrearAleatorio()
+        {
+            TestPersonaje.CrearPersonaje();
+            Cerrar();
+        }
+
         private bool Verificar(string texto)
         {
             string expresionValida = @"\A[a-zA-Z]+\z";
