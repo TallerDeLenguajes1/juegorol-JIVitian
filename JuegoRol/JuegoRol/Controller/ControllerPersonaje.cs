@@ -5,6 +5,9 @@ using System.Drawing;
 using System.Linq;
 using System.Media;
 using System.Windows.Forms;
+using System.Text.Json;
+using System.IO;
+using System.Collections.Generic;
 
 namespace JuegoRol.Controller
 {
@@ -156,7 +159,8 @@ namespace JuegoRol.Controller
                 sonido.SoundLocation = @"..\..\..\Resources\Win.wav";
                 sonido.Load();
                 sonido.Play();
-                MessageBox.Show($"El Ganador es {gp.Personajes.First()}", "FELICIDADES");
+                MessageBox.Show($"El Ganador del torneo es {gp.Personajes.First()}", "FELICIDADES");
+                GuardarGanador();
             }
         }
 
@@ -175,6 +179,54 @@ namespace JuegoRol.Controller
             pj.Fuerza++;
             pj.Velocidad++;
             pj.Destreza = (pj.Destreza <= 4) ? pj.Destreza + 1 : 5;
+        }
+
+        private void GuardarGanador()
+        {
+            List<Personaje> ganadores = ObtenerRanking();
+            ganadores.Add(gp.Personajes.First());
+
+            string DatosJson = JsonSerializer.Serialize(ganadores);
+
+            using (FileStream archivo = new FileStream("Ranking.JSON", FileMode.OpenOrCreate))
+            {
+                StreamWriter strWrite = new StreamWriter(archivo);
+                strWrite.WriteLine(DatosJson);
+                strWrite.Close();
+                strWrite.Dispose();
+            }
+        }
+
+        public List<Personaje> ObtenerRanking()
+        {
+            try
+            {
+                List<Personaje> ganadores = new List<Personaje>();
+
+                using (FileStream archivo = new FileStream("Ranking.JSON", FileMode.Open))
+                {
+                    StreamReader strReader = new StreamReader(archivo);
+                    string json = strReader.ReadToEnd();
+                    strReader.Close();
+                    strReader.Dispose();
+                    ganadores = JsonSerializer.Deserialize<List<Personaje>>(json);
+                }
+
+                return ganadores;
+            } catch (Exception e)
+            {
+                return new List<Personaje>();
+            }
+        }
+
+        public void VerRanking()
+        {
+            List<Personaje> ganadores = ObtenerRanking();
+
+            //ganadores.ForEach(ganador => ganador.ToString());
+
+            //MessageBox.Show(, "Ranking");
+            //MessageBox.Show(json, "Ranking");
         }
     }
 }

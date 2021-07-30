@@ -49,6 +49,7 @@ namespace JuegoRol.View
             this.lblDestreza = new System.Windows.Forms.Label();
             this.lblVelocidad = new System.Windows.Forms.Label();
             this.lblArmadura = new System.Windows.Forms.Label();
+            this.Ranking = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgPersonaje)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,7 +59,7 @@ namespace JuegoRol.View
             this.lbxPersonajes.ItemHeight = 15;
             this.lbxPersonajes.Location = new System.Drawing.Point(10, 40);
             this.lbxPersonajes.Name = "lbxPersonajes";
-            this.lbxPersonajes.Size = new System.Drawing.Size(156, 139);
+            this.lbxPersonajes.Size = new System.Drawing.Size(156, 124);
             this.lbxPersonajes.TabIndex = 0;
             this.lbxPersonajes.SelectedIndexChanged += new System.EventHandler(this.lbPersonajes_SelectedIndexChanged);
             // 
@@ -74,7 +75,7 @@ namespace JuegoRol.View
             // 
             // btnCrear
             // 
-            this.btnCrear.Location = new System.Drawing.Point(10, 205);
+            this.btnCrear.Location = new System.Drawing.Point(10, 170);
             this.btnCrear.Name = "btnCrear";
             this.btnCrear.Size = new System.Drawing.Size(75, 23);
             this.btnCrear.TabIndex = 2;
@@ -84,7 +85,7 @@ namespace JuegoRol.View
             // 
             // btnBorrar
             // 
-            this.btnBorrar.Location = new System.Drawing.Point(91, 205);
+            this.btnBorrar.Location = new System.Drawing.Point(91, 170);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(75, 23);
             this.btnBorrar.TabIndex = 3;
@@ -97,14 +98,14 @@ namespace JuegoRol.View
             this.imgPersonaje.Image = global::JuegoRol.Properties.Resources.Arquero;
             this.imgPersonaje.Location = new System.Drawing.Point(239, 22);
             this.imgPersonaje.Name = "imgPersonaje";
-            this.imgPersonaje.Size = new System.Drawing.Size(181, 234);
+            this.imgPersonaje.Size = new System.Drawing.Size(181, 229);
             this.imgPersonaje.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgPersonaje.TabIndex = 4;
             this.imgPersonaje.TabStop = false;
             // 
             // btnBatalla
             // 
-            this.btnBatalla.Location = new System.Drawing.Point(10, 233);
+            this.btnBatalla.Location = new System.Drawing.Point(10, 199);
             this.btnBatalla.Name = "btnBatalla";
             this.btnBatalla.Size = new System.Drawing.Size(156, 23);
             this.btnBatalla.TabIndex = 5;
@@ -222,11 +223,22 @@ namespace JuegoRol.View
             this.lblArmadura.TabIndex = 17;
             this.lblArmadura.Text = "label13";
             // 
+            // Ranking
+            // 
+            this.Ranking.Location = new System.Drawing.Point(10, 228);
+            this.Ranking.Name = "Ranking";
+            this.Ranking.Size = new System.Drawing.Size(156, 23);
+            this.Ranking.TabIndex = 18;
+            this.Ranking.Text = "Ranking";
+            this.Ranking.UseVisualStyleBackColor = true;
+            this.Ranking.Click += new System.EventHandler(this.Ranking_Click);
+            // 
             // ViewPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 292);
+            this.Controls.Add(this.Ranking);
             this.Controls.Add(this.lblArmadura);
             this.Controls.Add(this.lblVelocidad);
             this.Controls.Add(this.lblDestreza);
@@ -274,6 +286,7 @@ namespace JuegoRol.View
         private Label lblDestreza;
         private Label lblVelocidad;
         private Label lblArmadura;
+        private Button Ranking;
 
         public ListBox LbxPersonajes { get => lbxPersonajes; set => lbxPersonajes = value; }
         public Label Label1 { get => label1; set => label1 = value; }

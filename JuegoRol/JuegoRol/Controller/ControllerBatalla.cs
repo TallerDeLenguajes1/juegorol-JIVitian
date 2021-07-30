@@ -74,12 +74,7 @@ namespace JuegoRol.Controller
                 ronda++;
             }
 
-            if (cpu.Salud > player.Salud)
-                MessageBox.Show($"El ganador es: {cpu}");
-            else if (cpu.Salud < player.Salud)
-                MessageBox.Show($"El ganador es: {player}");
-            else
-                MessageBox.Show("Empate!");
+            SeleccionarGanador();
 
             vista.Dispose();
         }
@@ -122,6 +117,14 @@ namespace JuegoRol.Controller
                 barra.Value = i;
                 Thread.Sleep(25);
             }
+        }
+
+        private void SeleccionarGanador()
+        {
+            if (cpu.Salud == player.Salud)
+                MessageBox.Show("Empate!");
+            else
+                MessageBox.Show($"El ganador es: {(player.Salud > cpu.Salud ? player : cpu)}");
         }
 
         /**
