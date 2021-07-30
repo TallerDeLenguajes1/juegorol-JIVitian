@@ -222,11 +222,12 @@ namespace JuegoRol.Controller
         public void VerRanking()
         {
             List<Personaje> ganadores = ObtenerRanking();
+            string ranking = "";
 
-            //ganadores.ForEach(ganador => ganador.ToString());
+            for (int i = 0; i < ganadores.Count; i++)
+                ranking += $"{i + 1}. {ganadores.ElementAt(i)}\n";
 
-            //MessageBox.Show(, "Ranking");
-            //MessageBox.Show(json, "Ranking");
+            MessageBox.Show(ranking, "Ranking");
         }
     }
 }
