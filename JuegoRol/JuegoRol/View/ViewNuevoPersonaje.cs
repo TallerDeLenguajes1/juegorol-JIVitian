@@ -1,13 +1,5 @@
 ﻿using JuegoRol.Controller;
-using JuegoRol.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JuegoRol
@@ -35,6 +27,12 @@ namespace JuegoRol
         private void Aleatorio_Click(object sender, EventArgs e)
         {
             controller.CrearAleatorio();
+        }
+
+        private void cbType_SelectedValueChanged(object sender, EventArgs e)
+        {
+            // Por alguna razón me dice que el controlador es null cuando se abre la ventana
+            if (controller != null) controller.ActualizarImagen();
         }
     }
 }

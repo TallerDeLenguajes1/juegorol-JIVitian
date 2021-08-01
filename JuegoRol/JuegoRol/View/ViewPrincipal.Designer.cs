@@ -96,7 +96,7 @@ namespace JuegoRol.View
             // imgPersonaje
             // 
             this.imgPersonaje.Image = global::JuegoRol.Properties.Resources.Arquero;
-            this.imgPersonaje.Location = new System.Drawing.Point(239, 22);
+            this.imgPersonaje.Location = new System.Drawing.Point(206, 22);
             this.imgPersonaje.Name = "imgPersonaje";
             this.imgPersonaje.Size = new System.Drawing.Size(181, 229);
             this.imgPersonaje.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -117,7 +117,7 @@ namespace JuegoRol.View
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(442, 22);
+            this.label2.Location = new System.Drawing.Point(409, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 15);
             this.label2.TabIndex = 6;
@@ -126,7 +126,7 @@ namespace JuegoRol.View
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(442, 55);
+            this.lblNombre.Location = new System.Drawing.Point(409, 55);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(38, 15);
             this.lblNombre.TabIndex = 7;
@@ -135,7 +135,7 @@ namespace JuegoRol.View
             // lblApodo
             // 
             this.lblApodo.AutoSize = true;
-            this.lblApodo.Location = new System.Drawing.Point(442, 92);
+            this.lblApodo.Location = new System.Drawing.Point(409, 92);
             this.lblApodo.Name = "lblApodo";
             this.lblApodo.Size = new System.Drawing.Size(38, 15);
             this.lblApodo.TabIndex = 8;
@@ -144,7 +144,7 @@ namespace JuegoRol.View
             // lblEdad
             // 
             this.lblEdad.AutoSize = true;
-            this.lblEdad.Location = new System.Drawing.Point(442, 130);
+            this.lblEdad.Location = new System.Drawing.Point(409, 130);
             this.lblEdad.Name = "lblEdad";
             this.lblEdad.Size = new System.Drawing.Size(38, 15);
             this.lblEdad.TabIndex = 9;
@@ -153,7 +153,7 @@ namespace JuegoRol.View
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(442, 164);
+            this.lblFecha.Location = new System.Drawing.Point(409, 164);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(38, 15);
             this.lblFecha.TabIndex = 10;
@@ -162,7 +162,7 @@ namespace JuegoRol.View
             // lblNivel
             // 
             this.lblNivel.AutoSize = true;
-            this.lblNivel.Location = new System.Drawing.Point(442, 205);
+            this.lblNivel.Location = new System.Drawing.Point(409, 205);
             this.lblNivel.Name = "lblNivel";
             this.lblNivel.Size = new System.Drawing.Size(38, 15);
             this.lblNivel.TabIndex = 11;
@@ -172,7 +172,7 @@ namespace JuegoRol.View
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(613, 22);
+            this.label8.Location = new System.Drawing.Point(620, 22);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(35, 15);
             this.label8.TabIndex = 12;
@@ -181,7 +181,7 @@ namespace JuegoRol.View
             // lblSalud
             // 
             this.lblSalud.AutoSize = true;
-            this.lblSalud.Location = new System.Drawing.Point(613, 55);
+            this.lblSalud.Location = new System.Drawing.Point(620, 55);
             this.lblSalud.Name = "lblSalud";
             this.lblSalud.Size = new System.Drawing.Size(38, 15);
             this.lblSalud.TabIndex = 13;
@@ -190,7 +190,7 @@ namespace JuegoRol.View
             // lblFuerza
             // 
             this.lblFuerza.AutoSize = true;
-            this.lblFuerza.Location = new System.Drawing.Point(613, 92);
+            this.lblFuerza.Location = new System.Drawing.Point(620, 92);
             this.lblFuerza.Name = "lblFuerza";
             this.lblFuerza.Size = new System.Drawing.Size(44, 15);
             this.lblFuerza.TabIndex = 14;
@@ -199,7 +199,7 @@ namespace JuegoRol.View
             // lblDestreza
             // 
             this.lblDestreza.AutoSize = true;
-            this.lblDestreza.Location = new System.Drawing.Point(613, 130);
+            this.lblDestreza.Location = new System.Drawing.Point(620, 130);
             this.lblDestreza.Name = "lblDestreza";
             this.lblDestreza.Size = new System.Drawing.Size(44, 15);
             this.lblDestreza.TabIndex = 15;
@@ -208,7 +208,7 @@ namespace JuegoRol.View
             // lblVelocidad
             // 
             this.lblVelocidad.AutoSize = true;
-            this.lblVelocidad.Location = new System.Drawing.Point(613, 164);
+            this.lblVelocidad.Location = new System.Drawing.Point(620, 164);
             this.lblVelocidad.Name = "lblVelocidad";
             this.lblVelocidad.Size = new System.Drawing.Size(44, 15);
             this.lblVelocidad.TabIndex = 16;
@@ -217,7 +217,7 @@ namespace JuegoRol.View
             // lblArmadura
             // 
             this.lblArmadura.AutoSize = true;
-            this.lblArmadura.Location = new System.Drawing.Point(613, 205);
+            this.lblArmadura.Location = new System.Drawing.Point(620, 205);
             this.lblArmadura.Name = "lblArmadura";
             this.lblArmadura.Size = new System.Drawing.Size(44, 15);
             this.lblArmadura.TabIndex = 17;
@@ -237,7 +237,7 @@ namespace JuegoRol.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 292);
+            this.ClientSize = new System.Drawing.Size(720, 292);
             this.Controls.Add(this.Ranking);
             this.Controls.Add(this.lblArmadura);
             this.Controls.Add(this.lblVelocidad);

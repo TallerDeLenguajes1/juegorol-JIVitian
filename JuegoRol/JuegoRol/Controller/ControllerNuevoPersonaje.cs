@@ -1,5 +1,6 @@
 ﻿using JuegoRol.Model;
 using System;
+using System.Drawing;
 using System.Text.RegularExpressions;   
 using System.Windows.Forms;
 
@@ -16,6 +17,14 @@ namespace JuegoRol.Controller
             gp = GestorPersonaje.Instanciar();
             // Lleno la ComboBox con todos los elementos del enum TipoPersonaje
             vista.CbType.DataSource = Enum.GetValues(typeof(TipoPersonaje));
+            vista.DtDate.Value = DateTime.Now.AddYears(-20);
+            ActualizarImagen();
+        }
+
+        public void ActualizarImagen()
+        {
+            string ruta = $@"..\..\..\Resources\{vista.CbType.Text}.png";
+            vista.ImgPlayer.Image = Image.FromFile(ruta);
         }
 
         public void Crear()

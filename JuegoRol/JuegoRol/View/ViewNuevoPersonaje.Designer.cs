@@ -41,6 +41,8 @@ namespace JuegoRol
             this.btnCrear = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.Aleatorio = new System.Windows.Forms.Button();
+            this.imgPlayer = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPlayer)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -82,6 +84,7 @@ namespace JuegoRol
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(163, 23);
             this.cbType.TabIndex = 4;
+            this.cbType.SelectedValueChanged += new System.EventHandler(this.cbType_SelectedValueChanged);
             // 
             // dtDate
             // 
@@ -130,11 +133,22 @@ namespace JuegoRol
             this.Aleatorio.UseVisualStyleBackColor = true;
             this.Aleatorio.Click += new System.EventHandler(this.Aleatorio_Click);
             // 
+            // imgPlayer
+            // 
+            this.imgPlayer.BackColor = System.Drawing.Color.Transparent;
+            this.imgPlayer.Location = new System.Drawing.Point(231, 36);
+            this.imgPlayer.Name = "imgPlayer";
+            this.imgPlayer.Size = new System.Drawing.Size(180, 220);
+            this.imgPlayer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgPlayer.TabIndex = 10;
+            this.imgPlayer.TabStop = false;
+            // 
             // ViewNuevoPersonaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(786, 450);
+            this.ClientSize = new System.Drawing.Size(435, 324);
+            this.Controls.Add(this.imgPlayer);
             this.Controls.Add(this.Aleatorio);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnCrear);
@@ -147,6 +161,7 @@ namespace JuegoRol
             this.Controls.Add(this.label1);
             this.Name = "ViewNuevoPersonaje";
             this.Text = "Crear Nuevo Personaje";
+            ((System.ComponentModel.ISupportInitialize)(this.imgPlayer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -164,6 +179,7 @@ namespace JuegoRol
         private System.Windows.Forms.Button btnCrear;
         private System.Windows.Forms.Button btnCancelar;
         private Button Aleatorio;
+        private PictureBox imgPlayer;
 
         public Button BtnCrear { get => btnCrear; set => btnCrear = value; }
         public Button BtnCancelar { get => btnCancelar; set => btnCancelar = value; }
@@ -171,6 +187,7 @@ namespace JuegoRol
         public DateTimePicker DtDate { get => dtDate; set => dtDate = value; }
         public TextBox TxtName { get => txtName; set => txtName = value; }
         public TextBox TxtNick { get => txtNick; set => txtNick = value; }
+        public PictureBox ImgPlayer { get => imgPlayer; set => imgPlayer = value; }
     }
 }
 
