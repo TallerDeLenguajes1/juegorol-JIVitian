@@ -37,6 +37,7 @@ namespace JuegoRol.Controller
                 foreach (Personaje personaje in gp.Personajes)
                     vista.LbxPersonajes.Items.Add(personaje);
                 vista.LbxPersonajes.SelectedItem = 0;
+                SeleccionarPrimero();
             }
         }
 
@@ -54,8 +55,20 @@ namespace JuegoRol.Controller
         {
             int indice = vista.LbxPersonajes.SelectedIndex;
 
-            gp.BorrarPersonaje(indice);
-            vista.LbxPersonajes.Items.RemoveAt(indice);
+            if (indice != -1)
+            {
+                gp.BorrarPersonaje(indice);
+                vista.LbxPersonajes.Items.RemoveAt(indice);
+                SeleccionarPrimero();
+            }
+        }
+
+        private void SeleccionarPrimero()
+        {
+            if (gp.Personajes.Count > 0)
+                vista.LbxPersonajes.SetSelected(0, true);
+            else
+                DefaultStats();
         }
 
         public void CambiarPersonaje()
@@ -95,14 +108,28 @@ namespace JuegoRol.Controller
 
             vista.LblNombre.Text = $"Nombre: {PJ.Nombre}";
             vista.LblApodo.Text = $"Apodo: {PJ.Apodo}";
-            vista.LblEdad.Text = $"Edad: {PJ.Edad.ToString()} Años";
+            vista.LblEdad.Text = $"Edad: {PJ.Edad} Años";
             vista.LblFecha.Text = $"Nacimiento: {PJ.FechaNacimiento.Date.ToString("dd/MM/yyyy")}";
-            vista.LblNivel.Text = $"Nivel: {PJ.Nivel.ToString()}";
-            vista.LblFuerza.Text = $"Fuerza: {PJ.Fuerza.ToString()}";
-            vista.LblVelocidad.Text = $"Velocidad: {PJ.Velocidad.ToString()}";
-            vista.LblDestreza.Text = $"Destreza: {PJ.Destreza.ToString()}";
-            vista.LblArmadura.Text = $"Armadura: {PJ.Armadura.ToString()}";
-            vista.LblSalud.Text = $"Salud: {PJ.Salud.ToString()}";
+            vista.LblNivel.Text = $"Nivel: {PJ.Nivel}";
+            vista.LblFuerza.Text = $"Fuerza: {PJ.Fuerza}";
+            vista.LblVelocidad.Text = $"Velocidad: {PJ.Velocidad}";
+            vista.LblDestreza.Text = $"Destreza: {PJ.Destreza}";
+            vista.LblArmadura.Text = $"Armadura: {PJ.Armadura}";
+            vista.LblSalud.Text = $"Salud: {PJ.Salud}";
+        }
+
+        private void DefaultStats()
+        {
+            vista.LblNombre.Text = "Nombre: -";
+            vista.LblApodo.Text = "Apodo: -";
+            vista.LblEdad.Text = "Edad: -";
+            vista.LblFecha.Text = "Nacimiento: -";
+            vista.LblNivel.Text = "Nivel: -";
+            vista.LblFuerza.Text = "Fuerza: -";
+            vista.LblVelocidad.Text = "Velocidad: -";
+            vista.LblDestreza.Text = "Destreza: -";
+            vista.LblArmadura.Text = "Armadura: -";
+            vista.LblSalud.Text = "Salud: -";
         }
 
         public void AbrirVistaBatalla()
@@ -199,11 +226,13 @@ namespace JuegoRol.Controller
 
         public List<Personaje> ObtenerRanking()
         {
-            try
+            string path = "Ranking.JSON";
+
+            if (File.Exists(path))
             {
                 List<Personaje> ganadores = new List<Personaje>();
 
-                using (FileStream archivo = new FileStream("Ranking.JSON", FileMode.Open))
+                using (FileStream archivo = new FileStream(path, FileMode.Open))
                 {
                     StreamReader strReader = new StreamReader(archivo);
                     string json = strReader.ReadToEnd();
@@ -213,10 +242,8 @@ namespace JuegoRol.Controller
                 }
 
                 return ganadores;
-            } catch (Exception e)
-            {
+            } else
                 return new List<Personaje>();
-            }
         }
 
         public void VerRanking()

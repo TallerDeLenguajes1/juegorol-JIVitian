@@ -1,6 +1,6 @@
 ﻿using JuegoRol.Model;
 using System;
-using System.Text.RegularExpressions;
+using System.Text.RegularExpressions;   
 using System.Windows.Forms;
 
 namespace JuegoRol.Controller
