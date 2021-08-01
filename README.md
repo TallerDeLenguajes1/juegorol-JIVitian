@@ -3,7 +3,7 @@ JuegoRol---2021-JIVitian created by GitHub Classroom
 Alumno: Vitian, Jorge Iván
 
 ## Control de Progresos de Taller de Lenguajes 1 de Licenciautra Informatica - PU. FACET-UNT
-Pequeño juego de rol en los que se enfrentan varios personajes hasta quedar un ganador, la información de cada ganador se irá guardando en un ranking de personajes.
+Minijuego de rol en los que se enfrentan varios personajes hasta quedar un ganador, la información de cada ganador se irá guardando en un ranking de personajes.
 
 ## Información
 * ### Inicio

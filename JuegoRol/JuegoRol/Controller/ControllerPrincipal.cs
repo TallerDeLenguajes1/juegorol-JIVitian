@@ -254,7 +254,7 @@ namespace JuegoRol.Controller
             for (int i = 0; i < ganadores.Count; i++)
                 ranking += $"{i + 1}. {ganadores.ElementAt(i)}\n";
 
-            MessageBox.Show(ranking, "Ranking");
+            MessageBox.Show(ranking != "" ? ranking : "Todavía no se registraron ganadores!", "Ranking");
         }
     }
 }
