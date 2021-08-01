@@ -11,13 +11,13 @@ using System.Collections.Generic;
 
 namespace JuegoRol.Controller
 {
-    public class ControllerPersonaje
+    public class ControllerPrincipal
     {
         private ViewPrincipal vista;
         private GestorPersonaje gp;
         private bool yaPelearon;
 
-        public ControllerPersonaje(ViewPrincipal vista)
+        public ControllerPrincipal(ViewPrincipal vista)
         {
             this.vista = vista;
             gp = GestorPersonaje.Instanciar();

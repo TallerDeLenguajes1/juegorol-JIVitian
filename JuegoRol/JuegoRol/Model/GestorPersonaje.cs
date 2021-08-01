@@ -1,7 +1,6 @@
 ﻿
 using System;
 using System.Collections.Generic;
-using System.IO;
 
 namespace JuegoRol.Model
 {
@@ -101,10 +100,5 @@ namespace JuegoRol.Model
         {
             Personajes.RemoveAt(indice);
         }
-
-        //public void CargarLista()
-        //{
-        //    FileStream archivo = new File.Open();
-        //}
     }
 }

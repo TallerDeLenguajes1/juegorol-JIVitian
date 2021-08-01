@@ -1,15 +1,11 @@
 ﻿using JuegoRol.Model;
 using JuegoRol.View;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Media;
 using System.Net;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JuegoRol.Controller

@@ -6,12 +6,12 @@ namespace JuegoRol.View
 {
     public partial class ViewPrincipal : Form
     {
-        private ControllerPersonaje controller;
+        private ControllerPrincipal controller;
 
         public ViewPrincipal()
         {
             InitializeComponent();
-            controller = new ControllerPersonaje(this);
+            controller = new ControllerPrincipal(this);
         }
 
         private void lbPersonajes_SelectedIndexChanged(object sender, EventArgs e)
