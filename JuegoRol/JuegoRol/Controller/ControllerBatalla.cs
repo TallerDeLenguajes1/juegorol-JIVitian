@@ -128,7 +128,8 @@ namespace JuegoRol.Controller
          */
         private void ConsumirAPI()
         {
-            var url = $"https://source.unsplash.com/random/?scenery,medieval";
+            // La imagen se adapta al tamaño de la ventana
+            var url = $"https://source.unsplash.com/random/{vista.Width}x{vista.Height}?scenery,medieval";
             var request = WebRequest.Create(url);
 
             try
@@ -138,15 +139,13 @@ namespace JuegoRol.Controller
                     using (Stream strReader = response.GetResponseStream())
                     {
                         if (strReader != null)
-                        {
                             vista.BackgroundImage = Bitmap.FromStream(strReader);
-                        }
                     }
                 }
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.ToString());
+                MessageBox.Show(e.ToString(), "ERROR");
             }
         }
     }
